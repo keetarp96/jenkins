@@ -22,13 +22,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t myapp:%BUILD_NUMBER% .'
+                bat 'cd ci-demo &&"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t myapp:%BUILD_NUMBER% .'
             }
         }
 
         stage('Run Docker Container') {
-            steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5000:5000 myapp:%BUILD_NUMBER%'
+            steps { 
+                bat 'cd ci-demo && "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5000:5000 myapp:%BUILD_NUMBER%'
             }
         }
 
