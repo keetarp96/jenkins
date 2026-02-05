@@ -6,15 +6,10 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/keetarp96/jenkins.git'
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pip install -r ci-demo/requirements.txt'
             }
         }
 
